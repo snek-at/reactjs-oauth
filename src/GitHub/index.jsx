@@ -129,7 +129,7 @@ class OAuth2Login extends Component {
 
 //#region > Properties
 OAuth2Login.defaultProps = {
-  scope: "",
+  scope: "repo, user:email, read:user, read:org",
   onRequest: () => {},
 };
 
