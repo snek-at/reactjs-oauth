@@ -57,7 +57,7 @@ function guidGenerator() {
 //#endregion
 
 //#region > Exports
-export { toParams, toQuery, GuidGenerator };
+export { toParams, toQuery, guidGenerator };
 //#endregion
 
 /**

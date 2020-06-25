@@ -68,7 +68,7 @@ class OAuth2Login extends Component {
       `&client_id=${this.props.clientId}` +
       `&client_secret=${this.props.clientSecret}` +
       `&redirect_uri=${this.props.redirectUri}` +
-      `&state=${await guidGenerator()}`;
+      `&state=${guidGenerator()}`;
 
     /* POST request to get the access token from GitHub */
     await fetch(AuthorizeUrl, {
