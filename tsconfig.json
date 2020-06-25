@@ -1,3 +1,4 @@
+
 {
   "compilerOptions": {
     "target": "ES2020",
@@ -26,11 +27,26 @@
      * Implies 'allowSyntheticDefaultImports'.
      */
     "esModuleInterop": true,
-    /** Disallow inconsistently-cased references to the same file. */
+    /**
+     * Disallow inconsistently-cased references to the same file.
+     */
     "forceConsistentCasingInFileNames": true,
-    /** Allow json modules. */
-    "resolveJsonModule": true
+    /**
+     * Allow json modules.
+     */
+    "resolveJsonModule": true,
+    /**
+     * Allow js.
+     */
+    "allowJs": true,
+    /**
+     * Allow jsx for react.
+     */
+    "jsx": "react"
   },
-  /** The files to not type check. */
-  "exclude": ["node_modules", "build", "lib"]
+  /**
+   * The files to not type check.
+   */
+  "exclude": ["node_modules", "build", "lib"],
+  "include": ["src/**/*"]
 }
