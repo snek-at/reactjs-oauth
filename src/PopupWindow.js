@@ -12,7 +12,7 @@ class PopupWindow {
   }
 
   open() {
-    const { url } = this;
+    const url = this.url;
 
     this.window = window.open(url, "_blank");
   }
@@ -25,34 +25,27 @@ class PopupWindow {
   poll() {
     this.promise = new Promise((resolve, reject) => {
       this.iid = window.setInterval(() => {
-        try {
-          const popup = this.window;
+        const popup = this.window;
 
-          if (!popup || popup.closed !== false) {
-            this.close();
-
-            reject(new Error("The popup was closed"));
-
-            return;
-          }
-
-          if (
-            popup.location.href === this.url ||
-            popup.location.pathname === "blank"
-          ) {
-            return;
-          }
-
-          const params = toParams(popup.location.search);
-          resolve(params);
-
+        if (!popup || popup.closed !== false) {
           this.close();
-        } catch (error) {
-          /*
-           * Ignore DOMException: Blocked a frame with origin from accessing a
-           * cross-origin frame.
-           */
+
+          reject(new Error("The popup was closed"));
+
+          return;
         }
+
+        if (
+          popup.location.href === this.url ||
+          popup.location.pathname === "blank"
+        ) {
+          return;
+        }
+
+        const params = toParams(popup.location.search);
+        resolve(params);
+
+        this.close();
       }, 500);
     });
   }
