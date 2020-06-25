@@ -1,7 +1,33 @@
 {
   "name": "reactjs-oauth",
   "version": "0.1.0",
-  "private": true,
+  "description": "A neat OAuth service for React",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tsc",
+    "start": "react-scripts start"
+  },
+  "files": [
+    "lib",
+    "LICENSES"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snek-at/reactjs-oauth.git"
+  },
+  "keywords": [
+    "React",
+    "OAuth",
+    "GitHub"
+  ],
+  "author": "David Pinterics",
+  "license": "EUPL-1.2",
+  "bugs": {
+    "url": "https://github.com/snek-at/reactjs-oauth/issues"
+  },
+  "homepage": "https://github.com/snek-at/reactjs-oauth#readme",
   "devDependencies": {
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
@@ -11,25 +37,8 @@
     "react-scripts": "3.4.1",
     "typescript": "~3.7.2"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "mdbreact": "^4.27.0",
+    "prop-types": "^15.7.2"
   }
 }
