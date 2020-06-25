@@ -6,9 +6,10 @@ import PropTypes from "prop-types";
 import { MDBBtn, MDBIcon } from "mdbreact";
 
 //> PopupWindow
+// The window for handling oauth redirects
 import PopupWindow from "../PopupWindow";
 //> Utils
-import { toQuery, GuidGenerator } from "../utils";
+import { toQuery, guidGenerator } from "../utils";
 //#endregion
 
 //#region > Components
@@ -18,6 +19,7 @@ import { toQuery, GuidGenerator } from "../utils";
 class OAuth2Login extends Component {
   constructor(props) {
     super(props);
+
     this.onBtnClick = this.onBtnClick.bind(this);
     this.onRequest = this.onRequest.bind(this);
     this.onSuccess = this.onSuccess.bind(this);
@@ -28,10 +30,10 @@ class OAuth2Login extends Component {
     const {
       authorizationUrl,
       clientId,
-      clientSecret,
       scope,
       redirectUri,
     } = this.props;
+
     const search = toQuery({
       client_id: clientId,
       scope,
@@ -39,11 +41,11 @@ class OAuth2Login extends Component {
       response_type: "code",
     });
 
-    const popup = PopupWindow.open(`${authorizationUrl}?${search}`);
-    this.popup = popup;
+    this.popup = PopupWindow.open(`${authorizationUrl}?${search}`);
 
     this.onRequest();
-    popup.then(
+
+    this.popup.then(
       (data) => this.onSuccess(data),
       (error) => this.onFailure(error)
     );
@@ -66,7 +68,7 @@ class OAuth2Login extends Component {
       `&client_id=${this.props.clientId}` +
       `&client_secret=${this.props.clientSecret}` +
       `&redirect_uri=${this.props.redirectUri}` +
-      `&state=${await GuidGenerator()}`;
+      `&state=${await guidGenerator()}`;
 
     /* POST request to get the access token from GitHub */
     await fetch(AuthorizeUrl, {
@@ -105,7 +107,7 @@ class OAuth2Login extends Component {
 
   onFailure(error) {
     const { onRequest } = this.props;
-    console.log(error);
+
     onRequest(error);
   }
 
@@ -117,7 +119,6 @@ class OAuth2Login extends Component {
       attrs.className = className;
     }
 
-    // eslint-disable-next-line react/jsx-props-no-spreading
     return (
       <MDBBtn color="elegant" {...attrs}>
         <MDBIcon fab icon="github" size="lg" />

@@ -1,7 +1,9 @@
 //#region > Functions
 /**
+ * Extracts all parameters of a given query string.
+ *
+ * @function
  * @returns {values} Params selected from a query
- * @description This function gets params out of a query
  */
 function toParams(query) {
   const q = query.replace(/^\?/, "");
@@ -16,8 +18,10 @@ function toParams(query) {
 }
 
 /**
+ * Generates a query string out of given parameters.
+ *
+ * @function
  * @returns {query} A query for requests
- * @description This function builds a query out of params
  */
 function toQuery(params, delimiter = "&") {
   const keys = Object.keys(params);
@@ -34,10 +38,12 @@ function toQuery(params, delimiter = "&") {
 }
 
 /**
- * @returns {string} A guid string
- * @description This function generates a random guid string
+ * Generates a random GUID.
+ *
+ * @function
+ * @returns {string} A random GUID
  */
-function GuidGenerator() {
+function guidGenerator() {
   let d = new Date().getTime();
 
   return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, (c) => {

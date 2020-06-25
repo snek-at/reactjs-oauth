@@ -29,7 +29,6 @@ class PopupWindow {
 
         if (!popup || popup.closed !== false) {
           this.close();
-
           reject(new Error("The popup was closed"));
 
           return;
@@ -43,6 +42,7 @@ class PopupWindow {
         }
 
         const params = toParams(popup.location.search);
+
         resolve(params);
 
         this.close();
@@ -53,6 +53,7 @@ class PopupWindow {
   cancel() {
     if (this.iid) {
       window.clearInterval(this.iid);
+
       this.iid = null;
     }
   }

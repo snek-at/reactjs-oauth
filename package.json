@@ -1,7 +1,7 @@
 {
   "name": "reactjs-oauth",
   "version": "0.1.0",
-  "description": "A neat OAuth service for React",
+  "description": "A neat OAuth Service for ReactJS",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
