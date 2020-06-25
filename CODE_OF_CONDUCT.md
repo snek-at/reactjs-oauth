@@ -6,11 +6,12 @@
 
 <h3 align="center">Official code of conflict</h3>
 
-## Table of contents
-- [Table of contents](#table-of-contents)
-- [[](#conflicts)Conflicts](#conflictsconflicts)
+## Table of contents ##
 
-## [](#conflicts)Conflicts
+-   [Table of contents](#table-of-contents)
+-   [Conflicts](#conflicts)
+
+## [](#conflicts)Conflicts ##
 
 Our development effort is a very personal process compared
 to "traditional" ways of developing software. Your code and ideas
