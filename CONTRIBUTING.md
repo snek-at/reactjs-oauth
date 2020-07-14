@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://www.aichner-christian.com/" target="_blank" rel="noopener noreferrer">
-    <img src="https://www.aichner-christian.com/img/logo/logo_web.png" alt="Agency Logo" height="150">
+  <a href="https://snek.at/" target="_blank" rel="noopener noreferrer">
+    <img src="https://avatars2.githubusercontent.com/u/55870326?s=400&u=c6c7f06305ddc94747d474850fde7b2044f53838&v=4" alt="SNEK Logo" height="150">
   </a>
 </p>
 
@@ -11,13 +11,12 @@
   and or proper practices for, an individual.
 </p>
 
-## Table of contents ##
-
+## Table of contents
 -   [Table of contents](#table-of-contents)
 -   [Commits](#commits)
 -   [Pull Requests](#pull-requests)
 
-## [](#commits)Commits ##
+## [](#commits)Commits
 
 -   All commits may start with an uppercase letter
 -   All commits must be written in present tense
@@ -31,7 +30,7 @@
 -   No commits, under no circumstances, should be directly pushed to master (deadly)
 -   Each commit should only serve one purpose
 
-## [](#pull-requests)Pull Requests ##
+## [](#pull-requests)Pull Requests
 
 -   Each pull request should only follow one topic
 -   You must follow the guidelines / template
