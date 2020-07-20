@@ -152,7 +152,7 @@ OAuth2Login.propTypes = {
 //#endregion
 
 //#region > Exports
-//> Default Class
+//> Default Component
 export default OAuth2Login;
 //#endregion
 

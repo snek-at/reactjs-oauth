@@ -3,7 +3,7 @@
 import { toParams } from "./utils";
 //#endregion
 
-//#region > Components
+//#region > Classes
 /**
  * @class A windows that displays the login page for OAuth
  */
