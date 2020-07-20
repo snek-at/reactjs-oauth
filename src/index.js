@@ -3,6 +3,7 @@ import GitHubOAuth from "./GitHub";
 //#endregion
 
 //#region > Exports
+//> Default Component
 export default GitHubOAuth;
 //#endregion
 
