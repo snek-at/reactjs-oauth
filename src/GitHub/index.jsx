@@ -1,5 +1,8 @@
 //#region > Imports
+//> React
+// Contains all the functionality necessary to define React components
 import React, { Component } from "react";
+// Runtime type checking for React props and similar objects
 import PropTypes from "prop-types";
 //> MDB
 // "Material Design for Bootstrap" is a great UI design framework
