@@ -1,4 +1,15 @@
 {
+  "remark.format": {
+		"plugins": [
+			"github"
+		],
+		"rules": {
+			"closeAtx": true
+		},
+		"github": {
+			"repository": "https://github.com/mrmlnc/vscode-remark"
+		}
+	},
   "editor.rulers": [80,120],
   "editor.tabSize": 2,
   "editor.fontLigatures": true,
@@ -50,5 +61,5 @@
     "renamer",
     "webfonts",
     "webscrap"
-  ]
+  ],
 }
