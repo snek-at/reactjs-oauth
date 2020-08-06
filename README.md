@@ -1,4 +1,3 @@
-
 <p align="center">
   <a href="https://snek.at/" target="_blank" rel="noopener noreferrer">
     <img src="https://avatars2.githubusercontent.com/u/55870326?s=400&u=c6c7f06305ddc94747d474850fde7b2044f53838&v=4" alt="SNEK Logo" height="150">
@@ -39,7 +38,7 @@ Reactjs-OAuth serves as the component provider for all kind of OAuth authenticat
 ## [](#installation)Installation
 The system can be installed using the ```npm install``` command:
 ```bash
-$ npm install reactjs-oauth
+npm install reactjs-oauth
 ```
 
 ## [](#features)Features
@@ -73,7 +72,6 @@ import GitHubOAuth from "reactjs-oauth";
   onFailure={this.oauthGitHubFailure}
 />
 ```
-
 
 ## [](#contributing)Contributing
 ![GitHub last commit](https://img.shields.io/github/last-commit/snek-at/reactjs-oauth) ![GitHub issues](https://img.shields.io/github/issues-raw/snek-at/reactjs-oauth) ![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/snek-at/reactjs-oauth?color=green)
