@@ -1,10 +1,11 @@
 //#region > Imports
 import GitHubOAuth from "./GitHub";
+import InstagramOAuth from "./Instagram"
 //#endregion
 
 //#region > Exports
 //> Default Component
-export default GitHubOAuth;
+export {GitHubOAuth, InstagramOAuth};
 //#endregion
 
 /**
