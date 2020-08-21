@@ -65,45 +65,50 @@ class OAuth2Login extends Component {
       return this.onFailure(new Error("'code' not found"));
     }
 
-    const AuthorizeUrl =
-      `https://cors.snek.at/` +
-      `https://github.com/login/oauth/access_token?code=${data.code}` +
-      `&client_id=${this.props.clientId}` +
-      `&client_secret=${this.props.clientSecret}` +
-      `&redirect_uri=${this.props.redirectUri}` +
-      `&state=${guidGenerator()}`;
+    let formData = new FormData();
 
-    /* POST request to get the access token from GitHub */
-    await fetch(AuthorizeUrl, {
-      // prettier-ignore
-      headers: {
-        "Accept": "application/json",
-        "Access-Allow-Credentials": "True",
-        "Access-Control-Allow-Methods": "POST",
-        "Access-Control-Allow-Origin": "*",
-        "Content-Type": "application/json",
-        "Vary": "Origin",
-      },
+    formData.append("code", data.code);
+    formData.append("client_id", this.props.clientId);
+    formData.append("client_secret", this.props.clientSecret);
+    formData.append("redirect_uri", this.props.redirectUri);
+    formData.append("grant_type", "authorization_code");
+
+    /* POST request to get the access token from Instagram */
+    await fetch("https://api.instagram.com/oauth/access_token", {
       method: "POST",
+      body: formData,
     })
       .then(async (res) => await res.json())
       .then(async (res) => {
-        const accessToken = res.access_token;
+        let accessToken = res.access_token;
 
-        /* GET request to get the user used for OAuth */
-        await fetch(`https://api.github.com/user`, {
-          // prettier-ignore
-          headers: {
-            "authorization": "Token " + accessToken,
-          }
-        })
+        const longTokenUrl = 
+          `https://graph.instagram.com/access_token` +
+          `?grant_type=ig_exchange_token` + 
+          `&client_secret=${this.props.clientSecret}` +
+          `&access_token=${accessToken}`;
+
+        /* Get a long lived access token */
+        await fetch(longTokenUrl)
           .then(async (res) => await res.json())
-          .then((res) => {
-            data = { username: res.login, accessToken };
+          .then(async (res) => {
+            accessToken = res.access_token
 
-            const { onSuccess } = this.props;
+            const usernameUrl = 
+              `https://graph.instagram.com/me` +
+              `?fields=username` + 
+              `&access_token=${accessToken}`;
 
-            return onSuccess(data);
+            /* Get username */
+            await fetch(usernameUrl)
+              .then(async (res) => await res.json())
+              .then(async (res) => { 
+                data = {"username": res.username, accessToken};
+
+                const { onSuccess } = this.props;
+    
+                return onSuccess(data);
+              });
           });
       });
   }
@@ -123,8 +128,8 @@ class OAuth2Login extends Component {
     }
 
     return (
-      <MDBBtn color="elegant" {...attrs}>
-        <MDBIcon fab icon="github" size="lg" />
+      <MDBBtn color="ins" {...attrs}>
+        <MDBIcon fab icon="instagram" size="lg" />
       </MDBBtn>
     );
   }
@@ -133,7 +138,7 @@ class OAuth2Login extends Component {
 
 //#region > Properties
 OAuth2Login.defaultProps = {
-  scope: "repo, user:email, read:user, read:org",
+  scope: "user_profile,user_media",
   onRequest: () => {},
 };
 

@@ -1,6 +1,6 @@
 {
   "name": "reactjs-oauth",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A neat OAuth Service for ReactJS",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -20,7 +20,8 @@
   "keywords": [
     "React",
     "OAuth",
-    "GitHub"
+    "GitHub",
+    "Instagram"
   ],
   "author": "David Pinterics",
   "license": "EUPL-1.2",
