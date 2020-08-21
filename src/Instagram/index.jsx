@@ -29,7 +29,7 @@ class OAuth2Login extends Component {
     this.onFailure = this.onFailure.bind(this);
   }
 
-  onBtnClick() {
+  onBtnClick = () => {
     const {
       authorizationUrl,
       clientId,
@@ -54,7 +54,7 @@ class OAuth2Login extends Component {
     );
   }
 
-  onRequest() {
+  onRequest = () => {
     const { onRequest } = this.props;
 
     onRequest();
@@ -81,6 +81,7 @@ class OAuth2Login extends Component {
       .then(async (res) => await res.json())
       .then(async (res) => {
         let accessToken = res.access_token;
+
         const longTokenUrl = 
           `https://graph.instagram.com/access_token` +
           `?grant_type=ig_exchange_token` + 
@@ -112,13 +113,13 @@ class OAuth2Login extends Component {
       });
   }
 
-  onFailure(error) {
+  onFailure = (error) => {
     const { onRequest } = this.props;
 
     onRequest(error);
   }
 
-  render() {
+  render = () => {
     const { className } = this.props;
     const attrs = { onClick: this.onBtnClick };
 
